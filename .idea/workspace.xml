@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="561c7eac-07a2-4354-ac37-d1169d7e86dd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/services/impl/ParkingSpotServiceImplV2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/controllers/ParkingSpotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/controllers/ParkingSpotController.java" afterDir="false" />
     </list>

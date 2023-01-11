@@ -5,6 +5,7 @@ import com.api.parkingcontrol.models.ParkingSpotModel;
 import com.api.parkingcontrol.services.ParkingSpotService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -36,6 +37,8 @@ public class ParkingSpotController {
 
     //Segunda forma de injeção de dependência - por meio da annotation @Autowired
     @Autowired
+    @Qualifier("parkingSpotServiceImpl")  //Apontando o Bean da Service
+    //@Qualifier("parkingSpotServiceImplV2") ////Apontando o Bean da Service V2
     private ParkingSpotService parkingSpotService;
 
     @PostMapping  //Definindo um método público post direto na URI da classe
