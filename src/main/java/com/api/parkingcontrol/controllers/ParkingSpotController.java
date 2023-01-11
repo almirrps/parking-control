@@ -4,6 +4,7 @@ import com.api.parkingcontrol.dtos.ParkingSpotDto;
 import com.api.parkingcontrol.models.ParkingSpotModel;
 import com.api.parkingcontrol.services.ParkingSpotService;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -24,13 +25,18 @@ import java.util.UUID;
 @RequestMapping("/parking-spot") //Define a URI a nivel de classe
 public class ParkingSpotController {
 
-    //Criando a injeção de dependência, por meio de um construtor,
-    //da classe service para a classe Controller
+    //Primeira forma de injeção de dependência - por meio de um construtor
+    /*
     final ParkingSpotService parkingSpotService;
 
     public ParkingSpotController(ParkingSpotService parkingSpotService) {
         this.parkingSpotService = parkingSpotService;
     }
+     */
+
+    //Segunda forma de injeção de dependência - por meio da annotation @Autowired
+    @Autowired
+    private ParkingSpotService parkingSpotService;
 
     @PostMapping  //Definindo um método público post direto na URI da classe
     public ResponseEntity<Object> saveParkingSpot(@RequestBody @Valid ParkingSpotDto  parkingSpotDto) {
