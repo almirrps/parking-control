@@ -1,54 +1,26 @@
 package com.api.parkingcontrol.services;
 
 import com.api.parkingcontrol.models.ParkingSpotModel;
-import com.api.parkingcontrol.repositories.ParkingSpotRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Service
-public class ParkingSpotService {
+public interface ParkingSpotService {
 
-    //Criando abaixo, via construtor, uma injeção de dependência do
-    //repositorio para este service utilizar em determinados momentos
-    final ParkingSpotRepository parkingSpotRepository;
+    ParkingSpotModel save(ParkingSpotModel parkingSpotModel);
 
-    public ParkingSpotService(ParkingSpotRepository parkingSpotRepository) {
-        this.parkingSpotRepository = parkingSpotRepository;
-    }
+    boolean existsByLicensePlateCar(String licensePlateCar);
 
-    @Transactional //Garante que seja feito um rollback na transação caso haja algum problema
-    public ParkingSpotModel save(ParkingSpotModel parkingSpotModel) {
-        return parkingSpotRepository.save(parkingSpotModel);
-    }
+    boolean existsByParkingSpotNumber(String parkingSpotNumber);
 
-    public boolean existsByLicensePlateCar(String licensePlateCar) {
-        return parkingSpotRepository.existsByLicensePlateCar(licensePlateCar);
-    }
+    boolean existsByApartmentAndBlock(String apartment, String block);
 
-    public boolean existsByParkingSpotNumber(String parkingSpotNumber) {
-        return parkingSpotRepository.existsByParkingSpotNumber(parkingSpotNumber);
-    }
+    Page<ParkingSpotModel> findAll(Pageable pageable);
 
-    public boolean existsByApartmentAndBlock(String apartment, String block) {
-        return parkingSpotRepository.existsByApartmentAndBlock(apartment, block);
-    }
+    Optional<ParkingSpotModel> findById(UUID id);
 
-    public Page<ParkingSpotModel> findAll(Pageable pageable) {
-        return parkingSpotRepository.findAll(pageable);
-    }
+    void delete(ParkingSpotModel parkingSpotModel);
 
-    public Optional<ParkingSpotModel> findById(UUID id) {
-        return parkingSpotRepository.findById(id);
-    }
-
-    @Transactional //Garante que seja feito um rollback na transação caso haja algum problema
-    public void delete(ParkingSpotModel parkingSpotModel) {
-        parkingSpotRepository.delete(parkingSpotModel);
-    }
 }
