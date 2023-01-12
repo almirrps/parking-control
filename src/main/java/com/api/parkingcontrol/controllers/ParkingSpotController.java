@@ -8,6 +8,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -26,6 +27,8 @@ import java.util.UUID;
 @RestController
 @CrossOrigin(origins="*", maxAge = 3600) //Permite que o controller seja acessado de qualquer fonte
 @RequestMapping("/parking-spot") //Define a URI a nivel de classe
+//@Scope("singleton")  //Deixa o springboot decidir melhor momento para iniciar a instância
+//@Scope("prototype")  //Inicia uma nova instância de Controller toda vez que um método (endpoint) é executado
 public class ParkingSpotController {
 
     //Primeira forma de injeção de dependência - por meio de um construtor
@@ -48,6 +51,10 @@ public class ParkingSpotController {
 
     @Value("${app.host}")
     private String appHost;
+
+    public ParkingSpotController() {
+        System.out.println("ParkingSpotController created!!!");
+    }
 
     @PostMapping  //Definindo um método público post direto na URI da classe
     public ResponseEntity<Object> saveParkingSpot(@RequestBody @Valid ParkingSpotDto  parkingSpotDto) {
@@ -73,7 +80,7 @@ public class ParkingSpotController {
     public ResponseEntity<Page<ParkingSpotModel>> getAllParkingSpots(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
         System.out.println("App Name: " + appName);
         System.out.println("App Host: " + appHost);
-        
+
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findAll(pageable));
     }
 
