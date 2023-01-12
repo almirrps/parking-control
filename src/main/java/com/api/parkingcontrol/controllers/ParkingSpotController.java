@@ -1,11 +1,13 @@
 package com.api.parkingcontrol.controllers;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.api.parkingcontrol.dtos.ParkingSpotDto;
 import com.api.parkingcontrol.models.ParkingSpotModel;
 import com.api.parkingcontrol.services.ParkingSpotService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -41,6 +43,12 @@ public class ParkingSpotController {
     //@Qualifier("parkingSpotServiceImplV2") ////Apontando o Bean da Service V2
     private ParkingSpotService parkingSpotService;
 
+    @Value("${app.name}")
+    private String appName;
+
+    @Value("${app.host}")
+    private String appHost;
+
     @PostMapping  //Definindo um método público post direto na URI da classe
     public ResponseEntity<Object> saveParkingSpot(@RequestBody @Valid ParkingSpotDto  parkingSpotDto) {
         if (parkingSpotService.existsByLicensePlateCar(parkingSpotDto.getLicensePlateCar())) {
@@ -63,6 +71,9 @@ public class ParkingSpotController {
 
     @GetMapping //Definindo um método público get direto na URI da classe para retornar uma listagem
     public ResponseEntity<Page<ParkingSpotModel>> getAllParkingSpots(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+        System.out.println("App Name: " + appName);
+        System.out.println("App Host: " + appHost);
+        
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findAll(pageable));
     }
 
