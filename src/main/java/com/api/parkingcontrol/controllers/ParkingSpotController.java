@@ -1,6 +1,7 @@
 package com.api.parkingcontrol.controllers;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
+import com.api.parkingcontrol.AppProperties;
 import com.api.parkingcontrol.LazyBean;
 import com.api.parkingcontrol.MyBean;
 import com.api.parkingcontrol.dtos.ParkingSpotDto;
@@ -56,6 +57,9 @@ public class ParkingSpotController {
     //@Autowired
     //private LazyBean lazyBean;
 
+    @Autowired
+    private AppProperties appProperties;
+
     @Value("${app.name}")
     private String appName;
 
@@ -91,11 +95,14 @@ public class ParkingSpotController {
 
     @GetMapping //Definindo um método público get direto na URI da classe para retornar uma listagem
     public ResponseEntity<Page<ParkingSpotModel>> getAllParkingSpots(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
-        System.out.println("App Name: " + appName);
-        System.out.println("App Host: " + appHost);
+        //System.out.println("App Name: " + appName);
+        //System.out.println("App Host: " + appHost);
         //System.out.println(message);
         //myBean.method();
 
+        System.out.println("App Name: " + appProperties.getName());
+        System.out.println("App Port: " + appProperties.getPort());
+        System.out.println("App Host: " + appProperties.getHost());
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findAll(pageable));
     }
 

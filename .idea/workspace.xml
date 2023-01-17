@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="561c7eac-07a2-4354-ac37-d1169d7e86dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_modelmapper_modelmapper_3_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/configs/ProdBeanConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/configs/BeanConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/configs/DevBeanConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/AppProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/ParkingControlApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/ParkingControlApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/controllers/ParkingSpotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/controllers/ParkingSpotController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
