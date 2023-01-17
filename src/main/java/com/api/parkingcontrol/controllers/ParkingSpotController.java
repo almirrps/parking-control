@@ -1,6 +1,7 @@
 package com.api.parkingcontrol.controllers;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
+import com.api.parkingcontrol.MyBean;
 import com.api.parkingcontrol.dtos.ParkingSpotDto;
 import com.api.parkingcontrol.models.ParkingSpotModel;
 import com.api.parkingcontrol.services.ParkingSpotService;
@@ -30,7 +31,7 @@ import java.util.UUID;
 @RequestMapping("/parking-spot") //Define a URI a nivel de classe
 //@Scope("singleton")  //Deixa o springboot decidir melhor momento para iniciar a instância
 //@Scope("prototype")  //Inicia uma nova instância de Controller toda vez que um método (endpoint) é executado
-@PropertySource("classpath:custom.properties")
+//@PropertySource("classpath:custom.properties")
 public class ParkingSpotController {
 
     //Primeira forma de injeção de dependência - por meio de um construtor
@@ -48,14 +49,17 @@ public class ParkingSpotController {
     //@Qualifier("parkingSpotServiceImplV2") ////Apontando o Bean da Service V2
     private ParkingSpotService parkingSpotService;
 
+    @Autowired
+    private MyBean myBean;
+
     @Value("${app.name}")
     private String appName;
 
     @Value("${app.host}")
     private String appHost;
 
-    @Value("${message}")
-    private String message;
+    //@Value("${message}")
+    //private String message;
 
     //public ParkingSpotController() {
     //    System.out.println("ParkingSpotController created!!!");
@@ -85,7 +89,8 @@ public class ParkingSpotController {
     public ResponseEntity<Page<ParkingSpotModel>> getAllParkingSpots(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
         System.out.println("App Name: " + appName);
         System.out.println("App Host: " + appHost);
-        System.out.println(message);
+        //System.out.println(message);
+        myBean.method();
 
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findAll(pageable));
     }
