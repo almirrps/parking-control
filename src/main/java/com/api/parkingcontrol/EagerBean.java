@@ -4,7 +4,7 @@ import org.springframework.data.repository.cdi.Eager;
 import org.springframework.stereotype.Component;
 
 @Component
-@Eager  //O SpringBoot cria esta classe de forma anciosa, deixando ela disponível para utilização
+//@Eager  //O SpringBoot cria esta classe de forma anciosa, deixando ela disponível para utilização
 public class EagerBean {
 
     public EagerBean() {

@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="561c7eac-07a2-4354-ac37-d1169d7e86dd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parking-control.iml" beforeDir="false" afterPath="$PROJECT_DIR$/parking-control.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/EagerBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/EagerBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/configs/BeanConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/configs/BeanConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/controllers/ParkingSpotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/controllers/ParkingSpotController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/services/impl/ParkingSpotServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/services/impl/ParkingSpotServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/services/impl/ParkingSpotServiceImplV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/parkingcontrol/services/impl/ParkingSpotServiceImplV2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

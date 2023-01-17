@@ -50,11 +50,11 @@ public class ParkingSpotController {
     //@Qualifier("parkingSpotServiceImplV2") ////Apontando o Bean da Service V2
     private ParkingSpotService parkingSpotService;
 
-    @Autowired
-    private MyBean myBean;
+    //@Autowired
+    //private MyBean myBean;
 
-    @Autowired
-    private LazyBean lazyBean;
+    //@Autowired
+    //private LazyBean lazyBean;
 
     @Value("${app.name}")
     private String appName;
@@ -94,7 +94,7 @@ public class ParkingSpotController {
         System.out.println("App Name: " + appName);
         System.out.println("App Host: " + appHost);
         //System.out.println(message);
-        myBean.method();
+        //myBean.method();
 
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findAll(pageable));
     }
