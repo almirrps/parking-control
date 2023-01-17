@@ -46,7 +46,7 @@ public class ParkingSpotController {
 
     //Segunda forma de injeção de dependência - por meio da annotation @Autowired
     @Autowired
-    @Qualifier("parkingSpotServiceImpl")  //Apontando o Bean da Service
+    //@Qualifier("parkingSpotServiceImpl")  //Apontando o Bean da Service
     //@Qualifier("parkingSpotServiceImplV2") ////Apontando o Bean da Service V2
     private ParkingSpotService parkingSpotService;
 

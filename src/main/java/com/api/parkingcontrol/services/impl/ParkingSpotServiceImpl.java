@@ -3,6 +3,7 @@ package com.api.parkingcontrol.services.impl;
 import com.api.parkingcontrol.models.ParkingSpotModel;
 import com.api.parkingcontrol.repositories.ParkingSpotRepository;
 import com.api.parkingcontrol.services.ParkingSpotService;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import javax.transaction.Transactional;
 import java.util.Optional;
 import java.util.UUID;
 
+@Primary  //Entre duas services implementadas, esta annotation aponta quem deve ser priorizada
 @Service
 public class ParkingSpotServiceImpl implements ParkingSpotService {
 
