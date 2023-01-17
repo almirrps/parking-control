@@ -1,6 +1,7 @@
 package com.api.parkingcontrol.controllers;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
+import com.api.parkingcontrol.LazyBean;
 import com.api.parkingcontrol.MyBean;
 import com.api.parkingcontrol.dtos.ParkingSpotDto;
 import com.api.parkingcontrol.models.ParkingSpotModel;
@@ -51,6 +52,9 @@ public class ParkingSpotController {
 
     @Autowired
     private MyBean myBean;
+
+    @Autowired
+    private LazyBean lazyBean;
 
     @Value("${app.name}")
     private String appName;
